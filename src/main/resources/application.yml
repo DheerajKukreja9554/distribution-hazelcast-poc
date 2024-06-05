@@ -19,15 +19,15 @@ spring:
 
 server.port: 34355
 
-server.ssl.key-store: keystore.jks
-server.ssl.key-store-type: jks
-server.ssl.key-store-password: password
+# server.ssl.key-store: keystore.jks
+# server.ssl.key-store-type: jks
+# server.ssl.key-store-password: password
 #server.ssl.key-password=password
 # server.ssl.key-alias=server-service
 # server.ssl.client-auth=need
 
-server.ssl.trust-store: truststore.jks
-server.ssl.trust-store-password: your_storepass
-# ##server.ssl.trust-store-provider= # Provider for the trust store.
-server.ssl.trust-store-type: JKS
-# logging.level.org.springframework: debug
+# server.ssl.trust-store: truststore.jks
+# server.ssl.trust-store-password: your_storepass
+# # ##server.ssl.trust-store-provider= # Provider for the trust store.
+# server.ssl.trust-store-type: JKS
+# logging.level.root: debug

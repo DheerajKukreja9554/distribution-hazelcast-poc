@@ -13,5 +13,6 @@ public class TopicPusher {
             System.out.println("pushing: " + i);
             sampleTopic.publish(i);
         }
+
     }
 }

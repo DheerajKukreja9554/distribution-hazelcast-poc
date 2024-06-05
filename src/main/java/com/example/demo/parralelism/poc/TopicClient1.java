@@ -16,11 +16,12 @@ public class TopicClient1 {
 
         ITopic<Integer> sampleTopic = hazelcastInstance.getTopic("sampleTopic");
 
-        Flux<Integer> firstFlux = Flux.create(sink -> {
-            sampleTopic.addMessageListener(Utility.newListener(sink, hazelcastInstance,log));
-        }, FluxSink.OverflowStrategy.BUFFER);
-        
+        Flux<Integer> firstFlux = Flux.create(sink -> sampleTopic.addMessageListener(Utility.newListener(sink, hazelcastInstance, log)),
+                FluxSink.OverflowStrategy.BUFFER);
+
         firstFlux
+                // .parallel()
+                // .runOn(Schedulers.fromExecutor(Executors.newFixedThreadPool(2)))
             .doOnNext(i -> log.info("Element {} received on flux", i))
             .doOnNext(i -> {
                 try {
